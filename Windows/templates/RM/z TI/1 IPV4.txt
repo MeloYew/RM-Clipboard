@@ -1,0 +1,4 @@
+Esse PC não está conseguindo estabelecer uma conexão IPv4 com a internet, por isso o Studio não está funcionando.
+
+Será necessário acionar o seu técnico de TI para resolver essa questão de rede.
+

@@ -1,0 +1,19 @@
+Assunto: Autorização de Migração de Documentação – Clínica [Nome da Clínica]
+
+Prezada Equipe de Suporte Técnico,
+
+Por meio deste e-mail, a [Nome da Clínica/Radiologia] autoriza a migração de todas as documentações e cadastros do dentista [Nome do Dentista].
+
+E-mail de Origem (Atual): [email_antigo@dominio.com]
+
+E-mail de Destino (Novo): [email_novo@dominio.com]
+
+Motivo da Solicitacão: [Descreva brevemente o motivo aqui, ex: Atualização cadastral do profissional / Troca de e-mail corporativo]
+
+Solicitamos a gentileza de confirmar o recebimento e nos avisar assim que o procedimento for concluído.
+
+Atenciosamente,
+
+[Seu Nome Completo]
+
+[Nome da Clínica/Radiologia]

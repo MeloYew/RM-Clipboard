@@ -1,0 +1,13 @@
+Certo, estarei explicando o porquê receberam uma documentação e não receberam o nome no cadastro do Studio. Nós fornecemos às clínicas o sistema de radiologia, o Studio 3, e ele faz a distribuição de documentações através do iDoc.
+
+O iDoc é uma central de distribuição de exames global, em que todos podem ter uma conta, seja dentista, laudador, clínica e até pacientes.
+
+Quando um paciente ou dentista recebe a documentação pelo iDoc, ou seja, pela Radio Memory, significa que vocês enviaram a ele uma documentação.
+
+Por ser uma tratativa da Radio Memory com o dono da conta, é utilizado o nome da conta do iDoc. Porém, caso essa pessoa acesse o e-mail, estarão descritas no corpo da mensagem as informações colocadas no sistema.
+
+Para resolver o problema, basta acessar o iDoc e alterar o nome da conta.
+
+Link educativo de como alterar dados Cadastrais:
+https://www.help.radiomemory.com.br/artigo/como-alterar-os-dados-no-idoc/
+

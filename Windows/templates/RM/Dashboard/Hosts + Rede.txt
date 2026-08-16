@@ -1,0 +1,1 @@
+Configurei o hosts no windows e permiti o acesso em rede.

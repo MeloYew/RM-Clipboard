@@ -1,0 +1,10 @@
+Erro simples de rede.
+
+Realizado:
+
+Configurei hosts na estacao.
+Desativei o firewall
+Realizei pings de IP e Nome com o servidor.
+Configurei o control.exe keymgr.dll na estacao para conseguir acessar a pasta do servidor por nome e por IP.
+
+Depois desses testes deu tudo certo!

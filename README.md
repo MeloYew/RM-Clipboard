@@ -21,7 +21,11 @@ RM-Clipboard/
 │   ├── rm_clipboard.py
 │   └── templates/RM/
 ├── Windows/
-│   └── README.md
+│   ├── install.bat
+│   ├── uninstall.bat
+│   ├── Cargo.toml
+│   ├── src/
+│   └── templates/RM/
 └── README.md
 ```
 
@@ -56,10 +60,14 @@ but deliberately leaves existing user messages untouched.
 
 ## Windows version
 
-The Windows 11 launcher and installer will live under `Windows/` and create:
+The Windows 11 version is a native Win32 program written in Rust. It has no
+runtime dependencies on the coworker's computer, starts automatically with
+Windows, and registers **Win+Shift+M** globally. It creates and uses:
 
 ```text
 C:\Users\<username>\Documents\Support Messages\RM\
 ```
 
-It is not implemented yet.
+Download a tagged release and double-click `Windows\install.bat`. See
+[`Windows/README.md`](Windows/README.md) for installation, building, and
+uninstallation details.

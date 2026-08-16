@@ -1,0 +1,1 @@
+Calibrei exames radiograficos solicitados pela cliente e inseri na aba de modelos do sistema.

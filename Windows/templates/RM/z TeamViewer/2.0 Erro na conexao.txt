@@ -1,0 +1,2 @@
+Erro na conexão. Poderia reiniciar o TeamViewer e me enviar novamente o ID e a senha de acesso, por favor?
+

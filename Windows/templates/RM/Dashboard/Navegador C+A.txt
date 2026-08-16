@@ -1,0 +1,2 @@
+O problema estava no browser, atualizar para a mais recente e limpar o cache resolveu o problema.
+

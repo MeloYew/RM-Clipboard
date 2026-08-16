@@ -1,0 +1,1 @@
+Acessei remotamente e realizei a integracao com o programa de captura da cliente.

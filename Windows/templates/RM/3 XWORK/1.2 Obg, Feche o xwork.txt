@@ -1,0 +1,3 @@
+Perfeito, vou apagar esses pedidos.
+
+Antes, para que eu possa realizar a exclusão, é necessário que o XWork esteja fechado em todas as máquinas da clínica. Poderia fechar o programa em todas elas, por favor?
