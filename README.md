@@ -1,10 +1,12 @@
 # RM Clipboard
 
-RM Clipboard is a fast support-message launcher for Linux and Windows. Both
-versions use the same portable message library:
+RM Clipboard is split into independent Linux and Windows versions. Both create
+an `RM` folder inside the current user's Documents directory and import the
+same portable message library.
 
 ```text
-~/Documents/Support Messages/RM/
+Linux:   /home/<username>/Documents/Support Messages/RM/
+Windows: C:\Users\<username>\Documents\Support Messages\RM\
 ```
 
 Each `.txt` file becomes a button. Directories become categories, and clicking
@@ -14,11 +16,11 @@ a message copies its contents to the clipboard for use in support chats.
 
 ```text
 RM-Clipboard/
-├── linux/
+├── Linux/
 │   ├── install.sh
 │   ├── rm_clipboard.py
 │   └── templates/RM/
-├── windows/
+├── Windows/
 │   └── README.md
 └── README.md
 ```
@@ -39,7 +41,7 @@ Install it with:
 
 ```bash
 git clone https://github.com/MeloYew/RM-Clipboard.git
-cd RM-Clipboard/linux
+cd RM-Clipboard/Linux
 chmod +x install.sh
 ./install.sh
 ```
@@ -48,11 +50,16 @@ Press **Super+Shift+M** after installation.
 
 ## Updating message templates
 
-Edit the repository copies under `linux/templates/RM/` when changing the
+Edit the repository copies under `Linux/templates/RM/` when changing the
 defaults distributed to new users. Running the installer again adds new files
 but deliberately leaves existing user messages untouched.
 
 ## Windows version
 
-The Windows 11 launcher and installer will live under `windows/` and will use
-the same `Documents/Support Messages/RM/` layout. It is not implemented yet.
+The Windows 11 launcher and installer will live under `Windows/` and create:
+
+```text
+C:\Users\<username>\Documents\Support Messages\RM\
+```
+
+It is not implemented yet.
