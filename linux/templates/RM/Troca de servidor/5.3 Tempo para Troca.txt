@@ -1,0 +1,8 @@
+O tempo para realizar a troca de servidor pode variar de acordo com a velocidade de leitura e escrita dos discos, bem como com o tempo necessário para a transferência dos dados.
+
+Em média, o procedimento leva cerca de **3 horas**, podendo variar conforme o ambiente.
+
+Durante esse período, *não será possível utilizar nenhum dos programas do Studio*.
+
+A clínica tem disponibilidade para realizar esse processo agora? O recomendado é que a troca seja feita em um momento em que a clínica esteja sem atendimentos ou com o menor movimento possível.
+

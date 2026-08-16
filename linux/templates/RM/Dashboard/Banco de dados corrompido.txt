@@ -1,0 +1,5 @@
+Banco de dados do servidor corrompido.
+
+Ibeexpert & DuplicaBanco
+
+Dupliquei o banco e atualizei os dados de cadastro.

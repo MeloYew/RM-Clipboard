@@ -1,0 +1,2 @@
+Caso um pedido seja excluído no XWORK, não é possível criar outro utilizando o mesmo número de pedido.
+

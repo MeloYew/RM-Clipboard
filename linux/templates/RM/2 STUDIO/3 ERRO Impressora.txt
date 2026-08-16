@@ -1,0 +1,4 @@
+O erro da impressora está relacionado ao sistema operacional Windows. A própria impressora está exibindo a mensagem de erro, portanto, o problema não está no sistema.
+
+Será necessário acionar o técnico de TI da clínica para verificar e resolver essa questão.
+

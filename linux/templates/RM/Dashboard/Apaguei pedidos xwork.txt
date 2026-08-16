@@ -1,0 +1,3 @@
+Cliente entrou em contato solicitando que pedidos fossem excluidos do xwork.
+
+Eu apaguei os pedidos.

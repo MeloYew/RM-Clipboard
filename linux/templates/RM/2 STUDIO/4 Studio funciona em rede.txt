@@ -1,0 +1,2 @@
+O Studio funciona em rede. Essa configuração que acabei de aplicar será aplicada automaticamente a todas as estações assim que o programa for reiniciado.
+

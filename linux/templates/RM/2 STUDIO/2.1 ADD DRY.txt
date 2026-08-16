@@ -1,0 +1,8 @@
+Para configurar a sua impressora DRY no sistema Studio, precisarei das seguintes informações:
+
+· *AE Title*
+· *Endereço IP*
+· *Porta de impressão*
+
+Poderia, por gentileza, me informar esses dados?
+

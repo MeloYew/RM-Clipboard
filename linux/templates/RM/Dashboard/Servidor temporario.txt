@@ -1,0 +1,1 @@
+Instalacao de servidor temporario no pc da cliente.

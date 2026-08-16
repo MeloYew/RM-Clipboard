@@ -1,0 +1,4 @@
+Este computador não está na mesma faixa de IP do servidor, o que impossibilita a continuidade do processo.
+
+Nesse caso, será necessário acionar o técnico de TI da sua clínica para ajustar a configuração da rede e resolver essa questão.
+

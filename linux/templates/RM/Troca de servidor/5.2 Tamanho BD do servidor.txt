@@ -1,0 +1,4 @@
+O banco de dados do servidor está ocupando atualmente **[tamanho]**.
+
+Você possui algum dispositivo de armazenamento externo, como um HD ou SSD, para que possamos realizar a transferência durante a troca do servidor?
+

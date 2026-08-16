@@ -1,0 +1,6 @@
+Instalacao em rede na estacao da clinica.
+
+Acessei o servidor, liberei as portas de compartilhamento via "adm" "adm"
+Instalei o studio na estacao, inserindo manualmente a pasta IM e o arquivo exporta_pdf.exe na pasta do studio.
+
+Realizei testes e finalizei o atendimento.

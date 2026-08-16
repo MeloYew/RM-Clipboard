@@ -1,0 +1,4 @@
+Essa mensagem de erro está sendo gerada pelo sistema operacional Windows, e não pelo sistema Studio.
+
+Nesse caso, será necessário acionar o técnico de TI da sua clínica para resolver a questão.
+

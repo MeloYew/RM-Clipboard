@@ -1,0 +1,5 @@
+OK, o processo de calibrar é bem simples; vou te guiar.
+
+Primeiramente, será necessário ter um clipe, uma régua e uma fita adesiva. Peço que tire uma foto com o clipe posicionado ao lado da régua, para que eu possa ver o tamanho dele, de modo similar ao da imagem acima.
+
+E agora, com a ajuda de uma pessoa da sua equipe, coloque o clipe na posição da imagem acima e realize um scan. Eu criei uma documentação de teste; peço que você adicione a foto com o clipe nela, para que eu possa calibrar.
