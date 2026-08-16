@@ -10,6 +10,7 @@ use windows_sys::Win32::Graphics::Gdi::*;
 use windows_sys::Win32::System::DataExchange::*;
 use windows_sys::Win32::System::LibraryLoader::GetModuleHandleW;
 use windows_sys::Win32::System::Memory::*;
+use windows_sys::Win32::System::Ole::CF_UNICODETEXT;
 use windows_sys::Win32::UI::Input::KeyboardAndMouse::*;
 use windows_sys::Win32::UI::WindowsAndMessaging::*;
 
@@ -34,8 +35,13 @@ fn wide(value: &str) -> Vec<u16> {
 }
 
 fn rm_directory() -> PathBuf {
-    let profile = env::var_os("USERPROFILE").map(PathBuf::from).unwrap_or_default();
-    profile.join("Documents").join("Support Messages").join("RM")
+    let profile = env::var_os("USERPROFILE")
+        .map(PathBuf::from)
+        .unwrap_or_default();
+    profile
+        .join("Documents")
+        .join("Support Messages")
+        .join("RM")
 }
 
 fn display_name(path: &Path) -> String {
@@ -43,7 +49,10 @@ fn display_name(path: &Path) -> String {
     if path.is_dir() {
         format!("[Folder]  {name}")
     } else {
-        path.file_stem().unwrap_or_default().to_string_lossy().into_owned()
+        path.file_stem()
+            .unwrap_or_default()
+            .to_string_lossy()
+            .into_owned()
     }
 }
 
@@ -65,14 +74,19 @@ unsafe fn refresh(state: &mut AppState) {
             .map(|item| item.path())
             .filter(|path| {
                 path.is_dir()
-                    || path.extension().is_some_and(|ext| ext.eq_ignore_ascii_case("txt"))
+                    || path
+                        .extension()
+                        .is_some_and(|ext| ext.eq_ignore_ascii_case("txt"))
             })
             .collect();
     }
     state.entries.sort_by_key(|path| {
         (
             !path.is_dir(),
-            path.file_name().unwrap_or_default().to_string_lossy().to_lowercase(),
+            path.file_name()
+                .unwrap_or_default()
+                .to_string_lossy()
+                .to_lowercase(),
         )
     });
 
@@ -82,7 +96,10 @@ unsafe fn refresh(state: &mut AppState) {
         SendMessageW(state.list, LB_ADDSTRING, 0, label.as_ptr() as isize);
     }
 
-    let relative = state.current.strip_prefix(&state.root).unwrap_or(Path::new(""));
+    let relative = state
+        .current
+        .strip_prefix(&state.root)
+        .unwrap_or(Path::new(""));
     let title = if relative.as_os_str().is_empty() {
         "RM CLIPBOARD".to_string()
     } else {
@@ -112,7 +129,7 @@ unsafe fn copy_to_clipboard(hwnd: HWND, text: &str) -> bool {
     }
     std::ptr::copy_nonoverlapping(data.as_ptr(), target, data.len());
     GlobalUnlock(memory);
-    if SetClipboardData(CF_UNICODETEXT, memory as HANDLE).is_null() {
+    if SetClipboardData(CF_UNICODETEXT as u32, memory as HANDLE).is_null() {
         GlobalFree(memory);
         CloseClipboard();
         return false;
@@ -141,7 +158,12 @@ unsafe fn activate_selected(state: &mut AppState) {
         _ => {
             let body = wide("The selected message could not be copied.");
             let title = wide("RM Clipboard");
-            MessageBoxW(state.hwnd, body.as_ptr(), title.as_ptr(), MB_OK | MB_ICONERROR);
+            MessageBoxW(
+                state.hwnd,
+                body.as_ptr(),
+                title.as_ptr(),
+                MB_OK | MB_ICONERROR,
+            );
         }
     }
 }
@@ -165,18 +187,46 @@ unsafe extern "system" fn window_proc(
             let empty = wide("");
             let back_label = wide("Back");
             (*state).title = CreateWindowExW(
-                0, static_class.as_ptr(), empty.as_ptr(), WS_CHILD | WS_VISIBLE,
-                18, 16, WIDTH - 120, 28, hwnd, 0, 0, null(),
+                0,
+                static_class.as_ptr(),
+                empty.as_ptr(),
+                WS_CHILD | WS_VISIBLE,
+                18,
+                16,
+                WIDTH - 120,
+                28,
+                hwnd,
+                null_mut(),
+                null_mut(),
+                null(),
             );
             (*state).back = CreateWindowExW(
-                0, button_class.as_ptr(), back_label.as_ptr(),
+                0,
+                button_class.as_ptr(),
+                back_label.as_ptr(),
                 WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON as u32,
-                WIDTH - 96, 10, 70, 32, hwnd, BACK_ID as isize, 0, null(),
+                WIDTH - 96,
+                10,
+                70,
+                32,
+                hwnd,
+                BACK_ID as *mut std::ffi::c_void,
+                null_mut(),
+                null(),
             );
             (*state).list = CreateWindowExW(
-                WS_EX_CLIENTEDGE, list_class.as_ptr(), empty.as_ptr(),
+                WS_EX_CLIENTEDGE,
+                list_class.as_ptr(),
+                empty.as_ptr(),
                 WS_CHILD | WS_VISIBLE | WS_VSCROLL | LBS_NOTIFY as u32,
-                18, 54, WIDTH - 52, HEIGHT - 112, hwnd, LIST_ID as isize, 0, null(),
+                18,
+                54,
+                WIDTH - 52,
+                HEIGHT - 112,
+                hwnd,
+                LIST_ID as *mut std::ffi::c_void,
+                null_mut(),
+                null(),
             );
             refresh(&mut *state);
             0
@@ -188,8 +238,13 @@ unsafe extern "system" fn window_proc(
                 let screen_width = GetSystemMetrics(SM_CXSCREEN);
                 let screen_height = GetSystemMetrics(SM_CYSCREEN);
                 SetWindowPos(
-                    hwnd, HWND_TOPMOST, (screen_width - WIDTH) / 2,
-                    (screen_height - HEIGHT) / 2, WIDTH, HEIGHT, SWP_SHOWWINDOW,
+                    hwnd,
+                    HWND_TOPMOST,
+                    (screen_width - WIDTH) / 2,
+                    (screen_height - HEIGHT) / 2,
+                    WIDTH,
+                    HEIGHT,
+                    SWP_SHOWWINDOW,
                 );
                 SetForegroundWindow(hwnd);
                 SetFocus(state.list);
@@ -231,8 +286,13 @@ fn main() {
         let root = rm_directory();
         let _ = fs::create_dir_all(&root);
         let mut state = Box::new(AppState {
-            root: root.clone(), current: root, entries: Vec::new(),
-            hwnd: 0, title: 0, list: 0, back: 0,
+            root: root.clone(),
+            current: root,
+            entries: Vec::new(),
+            hwnd: null_mut(),
+            title: null_mut(),
+            list: null_mut(),
+            back: null_mut(),
         });
 
         let instance = GetModuleHandleW(null());
@@ -242,7 +302,7 @@ fn main() {
         class.style = CS_HREDRAW | CS_VREDRAW;
         class.lpfnWndProc = Some(window_proc);
         class.hInstance = instance;
-        class.hCursor = LoadCursorW(0, IDC_ARROW);
+        class.hCursor = LoadCursorW(null_mut(), IDC_ARROW);
         class.hbrBackground = (COLOR_WINDOW as isize + 1) as HBRUSH;
         class.lpszClassName = class_name.as_ptr();
         if RegisterClassW(&class) == 0 {
@@ -250,25 +310,44 @@ fn main() {
         }
 
         let hwnd = CreateWindowExW(
-            WS_EX_TOOLWINDOW, class_name.as_ptr(), window_title.as_ptr(),
+            WS_EX_TOOLWINDOW,
+            class_name.as_ptr(),
+            window_title.as_ptr(),
             WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU,
-            CW_USEDEFAULT, CW_USEDEFAULT, WIDTH, HEIGHT, 0, 0, instance,
+            CW_USEDEFAULT,
+            CW_USEDEFAULT,
+            WIDTH,
+            HEIGHT,
+            null_mut(),
+            null_mut(),
+            instance,
             state.as_mut() as *mut AppState as *const _,
         );
-        if hwnd == 0 {
+        if hwnd.is_null() {
             return;
         }
 
-        if RegisterHotKey(hwnd, HOTKEY_ID, MOD_WIN | MOD_SHIFT | MOD_NOREPEAT, b'M' as u32) == 0 {
+        if RegisterHotKey(
+            hwnd,
+            HOTKEY_ID,
+            MOD_WIN | MOD_SHIFT | MOD_NOREPEAT,
+            b'M' as u32,
+        ) == 0
+        {
             let body = wide("Win+Shift+M is already used by another program.");
-            MessageBoxW(hwnd, body.as_ptr(), window_title.as_ptr(), MB_OK | MB_ICONERROR);
+            MessageBoxW(
+                hwnd,
+                body.as_ptr(),
+                window_title.as_ptr(),
+                MB_OK | MB_ICONERROR,
+            );
             DestroyWindow(hwnd);
             return;
         }
 
         let _state = Box::into_raw(state);
         let mut message: MSG = std::mem::zeroed();
-        while GetMessageW(&mut message, 0, 0, 0) > 0 {
+        while GetMessageW(&mut message, null_mut(), 0, 0) > 0 {
             if message.message == WM_KEYDOWN && message.wParam == VK_ESCAPE as usize {
                 ShowWindow(hwnd, SW_HIDE);
                 continue;
