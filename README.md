@@ -1,10 +1,12 @@
-# RM Clipboard
+# RM Clip
 
-RM Clipboard is split into independent Linux and Windows versions. Both create
-an `RM` folder inside the current user's Documents directory and import the
-same portable message library.
+Eu precisava de uma ferramenta para agilizar o envio de mensagem para os clientes.
+Inicialmente fiz o RM CLip para linux, depois recriei para windows.
 
-```text
+Em ambos o sistema ele cria uma pasta "RM" dentro do folder de documentos do user
+e importa as mensagems que eu envio.
+
+```texto
 Linux:   /home/<username>/Documents/Support Messages/RM/
 Windows: C:\Users\<username>\Documents\Support Messages\RM\
 ```
@@ -12,7 +14,10 @@ Windows: C:\Users\<username>\Documents\Support Messages\RM\
 Each `.txt` file becomes a button. Directories become categories, and clicking
 a message copies its contents to the clipboard for use in support chats.
 
-## Repository layout
+Cada `.txt` vira um botao. Diretorios viram as cateorias, e clicar nas mensagens
+copiam elas para a clipboard, ai vc so cola depois.
+
+## layout
 
 ```text
 RM-Clipboard/
@@ -29,9 +34,9 @@ RM-Clipboard/
 └── README.md
 ```
 
-## Linux version
+## Linux 
 
-The current Linux version targets X11 with i3 and GTK 3. Its installer:
+So vai funcionar em x11 i3 GTK, e:
 
 - installs Python, PyGObject, GTK 3 and i3 dependencies on Arch Linux;
 - installs the launcher at `~/.local/bin/rm-clipboard`;
@@ -60,14 +65,14 @@ but deliberately leaves existing user messages untouched.
 
 ## Windows version
 
-The Windows 11 version is a native Win32 program written in Rust. It has no
-runtime dependencies on the coworker's computer, starts automatically with
-Windows, and registers **Win+Shift+M** globally. It creates and uses:
+Para Windows 11, meti o louco e aprendi rust pra fazer uma versao que roda nativamente.
+Nao tem runtime no pc, comeca sozinho com o windows, e registra **WIN+SHIFT+M** globalmente.
+Ele cria e usa:
 
 ```text
 C:\Users\<username>\Documents\Support Messages\RM\
 ```
 
-Download a tagged release and double-click `Windows\install.bat`. See
-[`Windows/README.md`](Windows/README.md) for installation, building, and
-uninstallation details.
+Baixe e abra `Windows\install.bat`. Veja
+[`Windows/README.md`](Windows/README.md) pra instalar, building, and
+uninstallation.
