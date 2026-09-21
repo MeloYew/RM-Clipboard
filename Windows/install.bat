@@ -43,5 +43,5 @@ start "" "%APP_DIR%\RMClipboard.exe"
 echo.
 echo RM Clipboard is installed.
 echo Messages: %MESSAGE_DIR%
-echo Shortcut: Win+Alt+M
+echo Shortcut: Ctrl+Alt+Shift+M
 exit /b 0

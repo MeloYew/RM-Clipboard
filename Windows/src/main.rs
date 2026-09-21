@@ -330,11 +330,11 @@ fn main() {
         if RegisterHotKey(
             hwnd,
             HOTKEY_ID,
-            MOD_WIN | MOD_ALT | MOD_NOREPEAT,
+            MOD_CONTROL | MOD_ALT | MOD_SHIFT | MOD_NOREPEAT,
             b'M' as u32,
         ) == 0
         {
-            let body = wide("Win+Alt+M is already used by another program.");
+            let body = wide("Ctrl+Alt+Shift+M is already used by another program.");
             MessageBoxW(
                 hwnd,
                 body.as_ptr(),

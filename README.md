@@ -66,7 +66,7 @@ but deliberately leaves existing user messages untouched.
 ## Windows version
 
 Para Windows 11, meti o louco e aprendi rust pra fazer uma versao que roda nativamente.
-Nao tem runtime no pc, comeca sozinho com o windows, e registra **WIN+ALT+M** globalmente.
+Nao tem runtime no pc, comeca sozinho com o windows, e registra **CTRL+ALT+SHIFT+M** globalmente.
 Ele cria e usa:
 
 ```text
