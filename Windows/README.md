@@ -1,7 +1,7 @@
 # RM Clipboard for Windows 11
 
 The Windows edition is a small native Win32 application written in Rust. It
-runs silently in the background and registers **Win+Shift+M** as a global
+runs silently in the background and registers **Win+Alt+M** as a global
 shortcut. No Python runtime, AutoHotkey, or third-party UI framework is needed
 on coworkers' computers.
 
@@ -23,7 +23,7 @@ Download this repository, then double-click `Windows\install.bat`. The installer
 5. creates a shortcut in the current user's Windows Startup folder; and
 6. starts it immediately.
 
-Press **Win+Shift+M**, double-click a folder to open it, or double-click a
+Press **Win+Alt+M**, double-click a folder to open it, or double-click a
 message to copy it. Press Escape or close the window to hide it. The global
 shortcut remains active in the background.
 
